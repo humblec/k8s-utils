@@ -1,74 +1,101 @@
-This program or binary is capable of reading dependencies.yaml
-which has been given as input and list out the names and versions
-of each components listed over there.
+# Dependencies Parser
 
-Example outputs:
+Dependencies Parser is a Go program designed to parse YAML files containing dependency information for Kubernetes projects. It can read from a local file or fetch the YAML file directly from GitHub based on the specified Kubernetes version.
+
+## Features
+
+- Parse dependency information from a local YAML file or fetch from GitHub.
+- Supports specifying the Kubernetes version to fetch the appropriate YAML file.
+- Print the name and version of each component specified in the YAML file.
+
+## Usage
+
+### Installation
+
+1. Make sure you have Go installed on your system. You can download it from [here](https://golang.org/dl/).
+
+2. Clone the repository:
 
 ```
-Options:
-  -input string
-    	Input YAML file path (default "dependencies.yaml")
-chumble2TR91:dependency-parser chumble$ 
+git clone https://github.com/humblec/k8s-utils/dependencies-parser.git
 
-chumble2TR91:dependency-parser chumble$ go run main.go 
-Name: zeitgeist
-Version: v0.2.0
-----------
-Name: cni
-Version: 1.4.0
-----------
-Name: coredns-kube-up
-Version: 1.11.1
-----------
-Name: coredns-kubeadm
-Version: 1.11.1
-----------
-Name: crictl
-Version: 1.29.0
-----------
-Name: protoc
-Version: 23.4
-----------
-Name: etcd
-Version: 3.5.12
-----------
-Name: etcd-image
-Version: 3.5.12
-----------
-Name: node-problem-detector
-Version: 0.8.13
-----------
-Name: golang: etcd release version
-Version: 1.20.13
-----------
-Name: golang: upstream version
-Version: 1.22rc2
-----------
-Name: registry.k8s.io/kube-cross: dependents
-Version: v1.30.0-go1.22rc2-bullseye.0
-----------
-Name: registry.k8s.io/debian-base: dependents
-Version: bookworm-v1.0.1
-----------
-Name: registry.k8s.io/distroless-iptables: dependents
-Version: v0.5.0
-----------
-Name: registry.k8s.io/go-runner: dependents
-Version: v2.3.1-go1.22rc2-bookworm.0
-----------
-Name: registry.k8s.io/pause
-Version: 3.9
-----------
-Name: registry.k8s.io/pause: dependents
-Version: 3.9
-----------
-Name: registry.k8s.io/build-image/setcap: dependents
-Version: bookworm-v1.0.1
-----------
-Name: gcr.io/cadvisor/cadvisor: dependents
-Version: v0.47.2
-----------
-Name: gcb-docker-gcloud: dependents
-Version: v20230623-56e06d7c18
-----------
+```
+# Dependencies Parser
+
+Dependencies Parser is a Go program designed to parse YAML files containing dependency information for Kubernetes projects. It can read from a local file or fetch the YAML file directly from GitHub based on the specified Kubernetes version.
+
+
+## Features
+
+- Parse dependency information from a local YAML file or fetch from GitHub.
+- Supports specifying the Kubernetes version to fetch the appropriate YAML file.
+- Print the name and version of each component specified in the YAML file.
+
+## Usage
+
+### Installation
+
+1. Make sure you have Go installed on your system. You can download it from [here](https://golang.org/dl/).
+
+2. Clone the repository:
+
+git clone https://github.com/humblec/k8s-utils/dependencies-parser.git
+
+css
+
+
+3. Navigate to the project directory:
+
+cd dependencies-parser
+
+markdown
+
+
+4. Build the program:
+
+go build
+
+bash
+
+
+### Run
+
+Run the program using the following command:
+
+./dependencies-parser [options]
+
+csharp
+
+
+Replace `[options]` with the desired command-line options.
+
+### Options
+
+- `-input`: Specifies the path to the local YAML file containing dependency information. If not provided, the program fetches the YAML file from GitHub based on the Kubernetes version.
+- `-k8s-ver`: Specifies the Kubernetes version. If provided, the program fetches the YAML file from GitHub based on this version.
+
+### Examples
+
+1. Parse dependency information from a local YAML file:
+
+./dependencies-parser -input dependencies.yaml
+
+sql
+
+
+2. Fetch dependency information from GitHub for Kubernetes version 1.28:
+
+./dependencies-parser -k8s-ver 1.28
+
+sql
+
+
+3. Fetch dependency information from GitHub for Kubernetes version v1.29:
+
+./dependencies-parser -k8s-ver v1.29
+
+csharp
+
+
+## License
 
